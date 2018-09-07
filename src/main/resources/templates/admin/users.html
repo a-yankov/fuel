@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+
+    <link rel="stylesheet" type="text/css" href="../webjars/bootstrap/4.0.0/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="../webjars/jquery/3.3.1/jquery.min.js"></script>
+    <meta charset="UTF-8"/>
+    <title>Users</title>
+</head>
+<body>
+<nav th:include="navbar"></nav>
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <form action="/admin/users" method="POST">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" name="username"/>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email"/>
+                </div>
+                <button type="submit" class="btn btn-primary">Търсене</button>
+            </form>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Email</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="user : ${users}">
+                        <th scope="row" th:text="${user.getId()}"></th>
+                        <td><a th:href="@{'/admin/user/'+ ${user.getId()}}"><p th:text="${user.getUsername()}"></p></a></td>
+                        <td th:text="${user.getEmail()}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+<script type="text/javascript" src="../webjars/bootstrap/4.0.0/js/bootstrap.js"></script>
+<script type="text/javascript" src="../webjars/popper.js/1.11.1/dist/umd/popper.min.js"></script>
+</body>
+</html>

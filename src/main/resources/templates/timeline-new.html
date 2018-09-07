@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="/webjars/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css"  href="/css/Timeline.css">
+
+</head>
+<body>
+<nav th:include="fragments/nav-bar :: navbar"></nav>
+    <!--<div class="page-header">-->
+        <!--<h1 id="timeline">Timeline</h1>-->
+    <!--</div>-->
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <ul class="timeline">
+                <li th:each="charge,iterStat : ${charges}" th:class="${iterStat.even}? 'timeline' : 'timeline-inverted' ">
+                    <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4 class="timeline-title">Fill up</h4>
+                            <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 10 minutes ago</small></p>
+                        </div>
+                        <div class="timeline-body">
+                            <p th:text="'price: ' + ${charge.getFuelPrice()}"></p>
+                            <p th:text="'Odometer: '+ ${charge.getTripMeter()}"></p>
+                            <p th:text="'Date: '+ ${charge.getDate()}"></p>
+                            <p th:text="'Qtty: '+ ${charge.getQuantity()}"></p>
+
+
+                        </div>
+                    </div>
+                </li>
+
+
+
+            </ul>
+        </div>
+    </div>
+</div>
+<a class="btn btn-success float-right" href=""></a>
+<div th:include="fragments/footer :: copy"></div>
+
+<script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

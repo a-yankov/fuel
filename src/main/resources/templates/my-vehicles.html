@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="/webjars/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>My vehicles</title>
+
+</head>
+<body>
+<nav th:include="fragments/nav-bar :: navbar"></nav>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <th:block th:each="vehicle : ${vehicles}">
+                <div class="card">
+                    <div class="card-header">
+                        <p class="card-text" th:text="${'Title: ' + vehicle.getTitle()}"></p>
+                    </div>
+                    <div class="card-body">
+                        <a class="btn btn-success" th:href="${'/timeline/' + vehicle.getId()}" >timeline</a>
+                        <a class="btn btn-success" th:href="${'/statistics/' + vehicle.getId()}" >statistics</a>
+                        <a class="btn btn-primary" th:href="${'/edit/' + vehicle.getId()}" >edit</a>
+                    </div>
+                </div>
+            </th:block>
+        </div>
+    </div>
+    <div class="row">
+        <div th:include="fragments/footer :: copy"></div>
+
+    </div>
+
+</div>
+
+
+
+
+
+<script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
