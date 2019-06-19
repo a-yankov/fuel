@@ -19,7 +19,7 @@ public class Charge  implements Comparable<Charge> {
     @NotNull
     private double fuelPrice;
     @NotNull
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private Date date;
 
     private int tripMeter;

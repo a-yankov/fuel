@@ -35,7 +35,7 @@ public class VehicleController {
     public String postNewVehicle(@ModelAttribute("vehicle") Vehicle vehicle, Principal principal){
         User user = this.userService.loadUserByUsername(principal.getName());
 
-        vehicle.setCreationDate(new Date(Calendar.getInstance().getTimeInMillis()));
+        vehicle.setCreatedOn(new Date(Calendar.getInstance().getTimeInMillis()));
         //sets odometer like start odometer
         vehicle.setOdometer(vehicle.getStartOdometer());
         vehicle.setUser(user);

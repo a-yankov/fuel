@@ -1,132 +1,119 @@
 package com.example.fuel_app.entities;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-
 import java.sql.Date;
 import java.util.List;
-import java.util.Set;
+
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Vehicle {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private String make;
-    private String model;
-    @Enumerated(EnumType.STRING)
-    private FuelType fuelType;
-    private int startOdometer;
-    private int odometer;
-    private String title;
-    private String description;
-    private String regNumber;
-    private Date creationDate;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	@Enumerated(EnumType.STRING)
+	private FuelType fuelType;
+	private int startOdometer;
+	private int odometer;
+	private String title;
+	private String description;
+	private String regNumber;
+	private Date createdOn;
 
-    @NotNull
-    @ManyToOne
-    @JoinColumn(name="user_id")
-    private User user;
+	@NotNull
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
 
-    @OneToMany(mappedBy = "vehicle")
-    private List<Charge> charges;
+	@OneToMany(mappedBy = "vehicle")
+	private List<Charge> charges;
 
+	public long getId() {
+		return id;
+	}
 
-    public long getId() {
-        return id;
-    }
+	public void setId(long id) {
+		this.id = id;
+	}
 
+	public int getOdometer() {
+		return odometer;
+	}
 
-    public void setId(long id) {
-        this.id = id;
-    }
+	public void setOdometer(int odometer) {
+		this.odometer = odometer;
+	}
 
-    public int getOdometer() {
-        return odometer;
-    }
+	public int getStartOdometer() {
+		return startOdometer;
+	}
 
-    public void setOdometer(int odometer) {
-        this.odometer = odometer;
-    }
+	public void setStartOdometer(int startOdometer) {
+		this.startOdometer = startOdometer;
+	}
 
-    public int getStartOdometer() {
-        return startOdometer;
-    }
+	public String getTitle() {
+		return title;
+	}
 
-    public void setStartOdometer(int startOdometer) {
-        this.startOdometer = startOdometer;
-    }
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
-    public String getTitle() {
-        return title;
-    }
+	public List<Charge> getCharges() {
+		return charges;
+	}
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+	public void setCharges(List<Charge> charges) {
+		this.charges = charges;
+	}
 
-    public List<Charge> getCharges() {
-        return charges;
-    }
+	public String getDescription() {
+		return description;
+	}
 
-    public void setCharges(List<Charge> charges) {
-        this.charges = charges;
-    }
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
-    public String getDescription() {
-        return description;
-    }
+	public String getRegNumber() {
+		return regNumber;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	public void setRegNumber(String regNumber) {
+		this.regNumber = regNumber;
+	}
 
-    public String getRegNumber() {
-        return regNumber;
-    }
+	public User getUser() {
+		return user;
+	}
 
-    public void setRegNumber(String regNumber) {
-        this.regNumber = regNumber;
-    }
+	public void setUser(User user) {
+		this.user = user;
+	}
 
-    public Date getCreationDate() {
-        return creationDate;
-    }
+	public FuelType getFuelType() {
+		return fuelType;
+	}
 
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-    }
+	public void setFuelType(FuelType fuelType) {
+		this.fuelType = fuelType;
+	}
 
-    public User getUser() {
-        return user;
-    }
+	public Date getCreatedOn() {
+		return createdOn;
+	}
 
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public String getMake() {
-        return make;
-    }
-
-    public void setMake(String make) {
-        this.make = make;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public FuelType getFuelType() {
-        return fuelType;
-    }
-
-    public void setFuelType(FuelType fuelType) {
-        this.fuelType = fuelType;
-    }
+	public void setCreatedOn(Date createdOn) {
+		this.createdOn = createdOn;
+	}
 }

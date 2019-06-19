@@ -12,7 +12,8 @@ import java.util.Set;
 @Table(name = "user")
 public class User implements UserDetails {
 
-    @Id
+	private static final long serialVersionUID = 1L;
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id", nullable = false, unique = true, updatable = false)
     private int id;

@@ -7,7 +7,9 @@ import javax.persistence.*;
 @Entity
 public class UserRole implements GrantedAuthority {
 
-    @Id
+	private static final long serialVersionUID = 1L;
+
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "role_id", nullable = false, unique = true, updatable = false)
     private int id;

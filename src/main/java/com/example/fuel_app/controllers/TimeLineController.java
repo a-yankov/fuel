@@ -1,17 +1,17 @@
 package com.example.fuel_app.controllers;
 
-import com.example.fuel_app.entities.Charge;
-import com.example.fuel_app.entities.Vehicle;
-import com.example.fuel_app.services.VehicleService;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import java.security.Principal;
-import java.util.List;
-import java.util.Optional;
+import com.example.fuel_app.entities.Charge;
+import com.example.fuel_app.entities.Vehicle;
+import com.example.fuel_app.services.VehicleService;
 
 @Controller
 public class TimeLineController {
