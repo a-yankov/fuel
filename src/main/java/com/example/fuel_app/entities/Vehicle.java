@@ -28,6 +28,9 @@ public class Vehicle {
 	private String description;
 	private String regNumber;
 	private Date createdOn;
+	@ManyToOne
+	@JoinColumn(name="model_id")
+	private VehicleModel model;
 
 	@NotNull
 	@ManyToOne
@@ -115,5 +118,13 @@ public class Vehicle {
 
 	public void setCreatedOn(Date createdOn) {
 		this.createdOn = createdOn;
+	}
+
+	public VehicleModel getModel() {
+		return model;
+	}
+
+	public void setModel(VehicleModel model) {
+		this.model = model;
 	}
 }
