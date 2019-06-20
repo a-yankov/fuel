@@ -2,6 +2,7 @@ package com.example.fuel_app.controllers;
 
 import com.example.fuel_app.entities.User;
 import com.example.fuel_app.entities.Vehicle;
+import com.example.fuel_app.models.VehicleReadDto;
 import com.example.fuel_app.services.UserServiceImpl;
 import com.example.fuel_app.services.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import java.security.Principal;
 import java.sql.Date;
 import java.util.Calendar;
+import java.util.List;
 
 
 @Controller
@@ -46,10 +48,11 @@ public class VehicleController {
 
     @GetMapping("/my-vehicles")
     public String getMyVehicles(Model model, Principal principal){
-        User user = this.userService.loadUserByUsername(principal.getName());
 
-        model.addAttribute("vehicles", user.getVehicles());
+        List<VehicleReadDto> vehicleDtos = this.vehicleService.getVechiclesReadDtoByUsername(principal.getName());
+        model.addAttribute("vehicles", vehicleDtos);
 
+        
         return "my-vehicles";
     }
 }
