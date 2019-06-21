@@ -1,72 +1,79 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="/webjars/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="/webjars/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/FloatingActionButton.css">
 
-    <title>Statistics</title>
+<title>Statistics</title>
 <style type="text/css">
- .card {
- 	margin: 10px;
- }
+.card {
+	margin: 10px;
+}
 </style>
 </head>
 <body>
-<nav th:include="fragments/nav-bar :: navbar"></nav>
+	<nav th:include="fragments/nav-bar :: navbar"></nav>
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-6">
-            <div class="card">
-                <div class="card-header">
-                    Month-to-date
-                </div>
-                <div class="card-body">
-                    <p class="card-text"><span>year-to-date</span> <span style="float: right" th:text="${fillUpsYearToDateCharges}"></span></p>
-                    <p class="card-text"> something elese here</p>
-                </div>
-            </div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="card">
+					<div class="card-header">Month-to-date</div>
+					<div class="card-body">
+						<p class="card-text">
+							<span>year-to-date</span> <span style="float: right" th:text="${fillUpsYearToDateCharges}"></span>
+						</p>
+						<p class="card-text">something elese here</p>
+					</div>
+				</div>
 
-            <div class="card">
-                <div class="card-header">
-                    Year-to-date
-                </div>
-                <div class="card-body">
-                    <p class="card-text" th:text="${'Total litters: ' + totalLitters}"></p>
-                    <p class="card-text" th:text="${'Total amount: ' + #numbers.formatDecimal(totalAmount, 0, 'COMMA', 2, 'POINT') + ' BGN'} "></p>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6">
-            <div class="card">
-                <div class="card-header">
-                    total
-                </div>
-                <div class="card-body">
-                    <p class="card-text"><span>fill-ups</span> <span style="float: right" th:text="${fillUpsYearToDateCharges}"></span></p>
-                    <p class="card-text"><span>Total consumption</span><span style="float: right" th:text="${#numbers.formatDecimal(YTDConsumption, 0, 'COMMA', 2, 'POINT') + ' l/100km'}"></span></p>
-                    <p class="card-text"><span>Total litters</span><span style="float: right" th:text="${totalLitters}"></span></p>
-                    <p class="card-text"><span>Total amount</span><span style="float: right" th:text="${#numbers.formatDecimal(totalAmount, 0, 'COMMA', 2, 'POINT') + ' BGN'}"></span></p>
-                </div>
-            </div>
+				<div class="card">
+					<div class="card-header">Year-to-date</div>
+					<div class="card-body">
+						<p class="card-text" th:text="${'Total litters: ' + totalLitters}"></p>
+						<p class="card-text"
+							th:text="${'Total amount: ' + #numbers.formatDecimal(totalAmount, 0, 'COMMA', 2, 'POINT') + ' BGN'} "></p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="card">
+					<div class="card-header">total</div>
+					<div class="card-body">
+						<p class="card-text">
+							<span>fill-ups</span> <span style="float: right" th:text="${fillUpsYearToDateCharges}"></span>
+						</p>
+						<p class="card-text">
+							<span>Total consumption</span><span style="float: right"
+								th:text="${#numbers.formatDecimal(YTDConsumption, 0, 'COMMA', 2, 'POINT') + ' l/100km'}"></span>
+						</p>
+						<p class="card-text">
+							<span>Total litters</span><span style="float: right" th:text="${totalLitters}"></span>
+						</p>
+						<p class="card-text">
+							<span>Total amount</span><span style="float: right"
+								th:text="${#numbers.formatDecimal(totalAmount, 0, 'COMMA', 2, 'POINT') + ' BGN'}"></span>
+						</p>
+					</div>
+				</div>
 
-            <div class="card">
-                <div class="card-header">
-                    Last year
-                </div>
-                <div class="card-body">
-                    <p class="card-text" th:text="${'Total litters: ' + totalLitters}"></p>
-                    <p class="card-text" th:text="${'Total amount: ' + #numbers.formatDecimal(totalAmount, 0, 'COMMA', 2, 'POINT') + 'BGN'}"></p>
-                </div>
-            </div>
-        </div>
+				<div class="card">
+					<div class="card-header">Last year</div>
+					<div class="card-body">
+						<p class="card-text" th:text="${'Total litters: ' + totalLitters}"></p>
+						<p class="card-text"
+							th:text="${'Total amount: ' + #numbers.formatDecimal(totalAmount, 0, 'COMMA', 2, 'POINT') + 'BGN'}"></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div th:include="fragments/floatingActionButton :: fab"></div>
+		<div th:include="fragments/footer :: copy"></div>
 
-    </div>
-    <div th:include="fragments/footer :: copy"></div>
-
-</div>
-<script type="text/javascript" src="/webjars/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript" src="/webjars/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+	</div>
+	<script type="text/javascript" src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="/webjars/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

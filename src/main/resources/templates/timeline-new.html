@@ -2,12 +2,11 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Timeline</title>
-<link href="/webjars/bootstrap/4.1.1/css/bootstrap.min.css"
-	rel="stylesheet">
+<link href="/webjars/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="/css/Timeline.css">
+<link rel="stylesheet" type="text/css" href="/css/FloatingActionButton.css">
 
 </head>
 <body>
@@ -26,10 +25,8 @@
 							<div class="timeline-heading">
 								<h4 class="timeline-title">Fill up</h4>
 								<p>
-									<small class="text-muted"><i
-										class="glyphicon glyphicon-time"></i> <time class="timeago"
-											th:datetime="${charge.getDate()}"
-											th:text="${charge.getDate()}"></time></small>
+									<small class="text-muted"><i class="glyphicon glyphicon-time"></i> <time
+											class="timeago" th:datetime="${charge.getDate()}" th:text="${charge.getDate()}"></time></small>
 								</p>
 							</div>
 							<div class="timeline-body">
@@ -43,13 +40,14 @@
 				</ul>
 			</div>
 		</div>
+
+
 	</div>
-	<a class="btn btn-success float-right" href=""></a>
+	<div th:include="fragments/floatingActionButton :: fab"></div>
 	<div th:include="fragments/footer :: copy"></div>
 
 	<script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
-	<script src="/webjars/timeago/1.5.3/jquery.timeago.js"
-		type="text/javascript"></script>
+	<script src="/webjars/timeago/1.5.3/jquery.timeago.js" type="text/javascript"></script>
 	<script src="/webjars/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
 	<script type="text/javascript">
 		jQuery(document).ready(function() {
