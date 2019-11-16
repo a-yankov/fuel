@@ -15,5 +15,10 @@ public class FuelAppApplication {
 	@Bean
 	public ModelMapper getModelMapper(){
 		return new ModelMapper();
+	
+	}
+
+	public String ala(){
+		return "asdda";
 	}
 }
