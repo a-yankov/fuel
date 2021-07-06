@@ -1,4 +1,4 @@
 FROM openjdk:8-jdk-alpine
 ARG JAR_FILE=target/*.jar
-COPY $fuel_app.jar
+COPY ${JAR_FILE} fuel_app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
